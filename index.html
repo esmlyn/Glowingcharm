@@ -1,0 +1,1450 @@
+
+<html lang="es">
+    <head>
+        <style>
+          .producto img {
+            width: 150px;
+            height: 150px;
+            object-fit: cover;
+            display: block;
+            margin: 0 auto;
+            border-radius: 8px;
+          }
+        </style>
+        <style>
+          .carrito {
+            margin-top: 40px;
+            padding: 20px;
+            border: 2px solid #ccc;
+            background-color: #f9f9f9;
+          }
+          
+          #lista-carrito li {
+            margin-bottom: 10px;
+          }
+          
+          #formulario-envio input {
+            display: block;
+            margin-bottom: 10px;
+            padding: 8px;
+            width: 100%;
+            max-width: 300px;
+          }
+          
+          #formulario-envio button {
+            padding: 10px 20px;
+            background-color: #0a74da;
+            color: white;
+            border: none;
+            cursor: pointer;
+          }
+          </style>
+          
+      </head>      
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Glowing Charm</title>
+
+  <script>
+  const botonesAgregar = document.querySelectorAll('.producto button');
+  const listaCarrito = document.getElementById('lista-carrito');
+  const total = document.getElementById('total');
+
+  let totalCompra = 0;
+
+  botonesAgregar.forEach((boton) => {
+    boton.addEventListener('click', () => {
+      const producto = boton.parentElement;
+      const nombre = producto.querySelector('h3').textContent;
+      const precioTexto = producto.querySelector('span').textContent;
+      const precio = parseInt(precioTexto.replace('$', '').replace('.', ''));
+
+      const item = document.createElement('li');
+      item.textContent = `${nombre} - $${precio}`;
+      listaCarrito.appendChild(item);
+
+      totalCompra += precio;
+      total.textContent = totalCompra;
+    });
+  });
+
+  // Formulario de pago
+  const formulario = document.getElementById('formulario-envio');
+  formulario.addEventListener('submit', function (e) {
+    e.preventDefault();
+    alert("¡Gracias por tu compra! Tu pedido está en camino. 📦");
+    listaCarrito.innerHTML = '';
+    total.textContent = 0;
+    totalCompra = 0;
+    formulario.reset();
+  });
+</script>
+<style>
+    body {
+      font-family: 'Arial', sans-serif;
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      scroll-behavior: smooth;
+    }
+
+    h1, h2, h3 {
+      margin: 0;
+    }
+
+    button {
+      font-family: inherit;
+    }
+
+    /* ======= HEADER ======= */
+    .glow-header {
+      background-image: url(imagen\ fondo.jpg); /* EDITA ESTA IMAGEN */
+      background-size: cover;
+      background-position: center;
+      padding: 80px 20px;
+      color: white;
+      text-align: center;
+    }
+
+    .nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 10px 40px;
+      background-color: rgba(0, 0, 0, 0.3);
+      backdrop-filter: blur(4px);
+    }
+
+
+    .logo {
+      font-family: 'Georgia', serif;
+      font-size: 2rem;
+      font-weight: bold;
+      color: #fdf8f9;
+    }
+
+    .menu {
+      list-style: none;
+      display: flex;
+      gap: 20px;
+    }
+
+    .menu li a {
+      color: #f99aaa;
+      text-decoration: none;
+      font-weight: 500;
+      transition: color 0.3s ease;
+    }
+
+    .menu li a:hover {
+      color: #ede2e4;
+    }
+
+    .cta {
+      margin-top: 100px;
+    }
+
+    .cta h1 {
+      font-size: 2.5rem;
+      margin-bottom: 20px;
+    }
+
+    .cta button {
+      background-color: #f99aaa;
+      color: f99aaa;
+      border: none;
+      padding: 12px 25px;
+      font-size: 1rem;
+      border-radius: 30px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    .cta button:hover {
+      background-color: #f3eeef;
+    }
+
+    /* ======= SECCIÓN SERVICIOS ======= */
+    #servicios {
+      padding: 60px 20px;
+      text-align: center;
+    }
+
+    .galeria {
+      display: flex;
+      justify-content: center;
+      gap: 30px;
+      flex-wrap: wrap;
+    }
+
+    .servicio {
+      background-color: #f99aaa;
+      border-radius: 15px;
+      padding: 20px;
+      width: 250px;
+      box-shadow: 0 2px 8px ffffff(0,0,0,0.1);
+    }
+
+    .servicio img {
+      width: 100%;
+      border-radius: 10px;
+    }
+
+    #servicios button {
+      margin-top: 30px;
+      background-color: #d63384;
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 25px;
+      cursor: pointer;
+    }
+
+    #servicios button:hover {
+      background-color: #b92c70;
+    }
+
+    /* ======= TESTIMONIOS ======= */
+    #testimonios {
+      background-color: #fff5fa;
+      padding: 60px 20px;
+      text-align: center;
+    }
+
+    .testimonio {
+      max-width: 500px;
+      margin: 0 auto 20px;
+      font-style: italic;
+    }
+
+    /* ======= SOBRE NOSOTROS ======= */
+    #sobre-nosotros {
+      padding: 60px 20px;
+      text-align: center;
+    }
+
+    .contenido-historia {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .contenido-historia img {
+      width: 300px;
+      margin-bottom: 20px;
+      border-radius: 10px;
+    }
+
+    /* ======= TIENDA ======= */
+    .tienda {
+      padding: 60px 20px;
+      background-color: #fff5fa;
+      text-align: center;
+    }
+
+    .tienda h2 {
+      font-size: 2rem;
+      color: #d63384;
+      margin-bottom: 30px;
+    }
+
+    .productos {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 30px;
+    }
+
+    .producto {
+      background: white;
+      border: 1px solid #ffe0ef;
+      border-radius: 15px;
+      padding: 20px;
+      width: 250px;
+      box-shadow: 0 2px 8px rgb(247, 244, 244);
+      transition: transform 0.2s ease;
+    }
+
+    .producto:hover {
+      transform: translateY(-5px);
+    }
+
+    .producto img {
+      width: 100%;
+      border-radius: 10px;
+      margin-bottom: 15px;
+    }
+
+    .producto h3 {
+      font-size: 1.2rem;
+      margin: 10px 0 5px;
+      color: #333;
+    }
+
+    .producto p {
+      color: #666;
+      margin-bottom: 10px;
+    }
+
+    .producto span {
+      display: block;
+      font-weight: bold;
+      margin-bottom: 10px;
+      color: #d63384;
+    }
+
+    .producto button {
+      background-color: #d63384;
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 25px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    .producto button:hover {
+      background-color: #f99aaa;
+    }
+
+    /* ======= CONTACTO ======= */
+    #contacto {
+      padding: 60px 20px;
+      background-color: #fafafa;
+      text-align: center;
+    }
+
+    #contacto form {
+      display: flex;
+      flex-direction: column;
+      max-width: 400px;
+      margin: auto;
+      gap: 15px;
+    }
+
+    #contacto input, #contacto select {
+      padding: 10px;
+      border-radius: 8px;
+      border: 1px solid #ccc;
+    }
+
+    #contacto button {
+      background-color: #d63384;
+      color: white;
+      border: none;
+      padding: 10px;
+      border-radius: 25px;
+      cursor: pointer;
+    }
+
+    #contacto button:hover {
+      background-color: #faf5f7;
+    }
+
+    /* ======= FOOTER ======= */
+    footer {
+      text-align: center;
+      padding: 20px;
+      background-color: #faf4f4f6;
+      color: rgb(12, 8, 8);
+    }
+
+    @media (max-width: 768px) {
+      .menu {
+        flex-direction: column;
+        gap: 10px;
+        background-color: rgb(248, 242, 242);
+        padding: 10px;
+        border-radius: 10px;
+      }
+
+      .cta h1 {
+        font-size: 1.8rem;
+      }
+
+      .cta {
+        margin-top: 60px;
+      }
+
+      .contenido-historia {
+        padding: 10px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- HEADER -->
+  <header class="glow-header">
+    <nav class="nav">
+      <div class="logo">Glowing Charm</div>
+      <ul class="menu">
+        <li><a href="#inicio">Inicio</a></li>
+        <li><a href="#servicios">Servicios</a></li>
+        <li><a href="#tienda">Tienda</a></li>
+        <li><a href="#sobre-nosotros">Sobre N.</a></li>
+        <li><a href="#contacto">Contacto</a></li>
+        <li><a href="#carrito">🛒</a></li>
+      </ul>
+    </nav>
+    <div class="cta">
+      <h1>Transforma tu piel, Transforma tu vida</h1>
+      <button onclick="location.href='#contacto'">Agendar Cita</button>
+    </div>
+  </header>
+  <style>
+    .galeria img {
+      width: 200px;
+      height: 200px;
+      object-fit: cover;
+      border-radius: 10px;
+    }
+  </style>
+
+  <!-- SERVICIOS -->
+  <section id="servicios">
+    <h2>Conoce nuestros Servicios</h2>
+    <div class="galeria">
+      <div class="servicio">
+        <img src="Limpieza" alt="Servicio 1">
+        <p>Facial de limpieza profunda</p>
+      </div>
+      <div class="servicio">
+        <img src="tratamiento profundo" alt="Servicio 2">
+        <p>Tratamientos faciales</p>
+      </div>
+      <div class="servicio">
+        <img src="Depilación con cera y láser" alt="Servicio 3">
+         </p>Depilación láser</p>
+      </div>
+      <div class="servicio">
+        <img src="Asesoría en cuidado de la piel" alt="Servicio 3">
+         </p>Asesoría en cuidado de la piel</p>
+      </div>
+      <div class="servicio">
+        <img src="DEPILACION CERA" alt="Servicio 3">
+         </p>Depilación con cera </p>
+      </div>
+      <div class="servicio">
+        <img src="Peeling físico" alt="Servicio 3">
+         </p>Peeling físico</p>
+    </div>
+    <div class="servicio">
+        <img src="Programas de datox facial" alt="Servicio 3">
+         </p>Programas de datox facial  </p>
+    </div>
+    <div class="servicio">
+        <img src="Tratamientos de microdermoabrasión" alt="Servicio 3">
+         </p>Tratamientos de microdermoabrasión</p>
+    </div>
+  </section>
+
+  <section id="tienda" class="tienda">
+    <h2>Nuestra Tienda</h2>
+    <div class="productos">
+      <div class="producto">
+        <img src="producto00" alt="Producto 1">
+        <h3>CeraVe Gel Limpiador Control Imperfecciones</h3>
+        <p>Marca: CeraVe</p>
+        <span>$30.28</span>
+        <button class="agregar-carrito" data-nombre="CeraVe Gel Limpiador Control Imperfecciones"data-Precio="30.28">Agregar al carrito</button>
+      </div>
+      <div class="producto">
+        <img src="producto2" alt="Producto 2">
+        <h3>CeraVe Crema Hidratante para Piel Seca</h3>
+        <p>Marca: CeraVe</p>
+        <span>$15.14</span>
+        <button class="agregar-carrito" data-nombre="CeraVe Crema Hidratante para Piel Seca"data-Precio="15.14">Agregar al carrito</button>
+      </div>
+      <div class="producto">
+        <img src="producto3" alt="Producto 3">
+        <h3>CeraVe Loción Hidratante con SPF 50</h3>
+        <p>Marca: CeraVe</p>
+        <span>$23.55</span>
+        <button class="agregar-carrito" data-nombre="CeraVe Loción Hidratante con SPF 50"data-Precio="23.55">Agregar al carrito</button>
+      </div>
+      <div class="producto">
+        <img src="producto4" alt="Producto 3">
+        <h3>Babe Gel de Aloe 100%</h3>
+        <p>Marca: Babe</p>
+        <span>$28.60</span>
+        <button class="agregar-carrito" data-nombre="Babe Gel de Aloe 100%"data-Precio="28.60">Agregar al carrito</button>
+      </div>
+      <div class="producto">
+        <img src="producto5" alt="Producto 3">
+        <h3>Babe Crema Emoliente Pediátrica para Piel Atópica</h3>
+        <p>Marca: Babe</p>
+        <span>$30.28</span>
+        <button class="agregar-carrito" data-nombre="Babe Crema Emoliente Pediátrica para Piel Atópica"data-Precio="30.28">Agregar al carrito</button>
+      </div>
+      <div class="producto">
+        <img src="producto6" alt="Producto 3">
+        <h3>Babe Stick Labial SPF20</h3>
+        <p>Marca: Babe</p>
+        <span>$31.96</span>
+        <button class="agregar-carrito" data-nombre="Babe Stick Labial SPF20"data-Precio="31.96">Agregar al carrito</button>
+      </div>
+      <div class="producto">
+        <img src="producto7" alt="Producto 3">
+        <h3>Eucerin DermoPure Oil Control Fluido Matificante</h3>
+        <p>Marca: Eucerin</p>
+        <span>$23.55</span>
+        <button class="agregar-carrito" data-nombre="Eucerin DermoPure Oil Control Fluido Matificante"data-Precio="23.55">Agregar al carrito</button>
+    </div>
+    <div class="producto">
+        <img src="producto8" alt="Producto 3">
+        <h3>Eucerin Hyaluron-Filler Crema de Noche</h3>
+        <p>Marca: Eucerin</p>
+        <span>$38.69</span>
+        <button class="agregar-carrito" data-nombre="Eucerin Hyaluron-Filler Crema de Noche"data-Precio="38.69">Agregar al carrito</button>
+    </div>
+    <div class="producto">
+        <img src="producto9 " alt="Producto 3">
+        <h3> Eucerin UreaRepair PLUS Loción 10% Urea</h3>
+        <p>Marca: Eucerin</p>
+        <span>$23.55</span>
+        <button class="agregar-carrito" data-nombre="Eucerin UreaRepair PLUS Loción 10% Urea"data-Precio="23.55">Agregar al carrito</button>
+    </div>
+    <div class="producto">
+        <img src="producto10" alt="Producto 3">
+        <h3>La Roche-Posay Cicaplast Baume B5+</h3>
+        <p>Marca: La Roche-Posay</p>
+        <span>$37.01</span>
+        <button class="agregar-carrito" data-nombre="La Roche-Posay Cicaplast Baume B5+"data-Precio="37.01">Agregar al carrito</button>
+    </div>
+    <div class="producto">
+        <img src="producto11" alt="Producto 3">
+        <h3>La Roche-Posay Effaclar Duo </h3>
+        <p>Marca: La Roche-Posay </p>
+        <span>$31.96</span>
+        <button class="agregar-carrito" data-nombre="La Roche-Posay Effaclar Duo"data-Precio="31.96">Agregar al carrito</button>
+    </div>
+    <div class="producto">
+        <img src="producto12" alt="Producto 3">
+        <h3>La Roche-Posay Anthelios Shaka Fluido SPF50+</h3>
+        <p>Marca: La Roche-Posay </p>
+        <span>$25.23</span>
+        <button class="agregar-carrito" data-nombre="La Roche-Posay Anthelios Shaka Fluido SPF50"data-Precio="25.23">Agregar al carrito</button>
+    </div>
+    <div class="producto">
+        <img src="producto13" alt="Producto 3">
+        <h3>Bioderma Defensive Serum</h3>
+        <p>Marca: Bioderma  </p>
+        <span>$21.87</span>
+        <button class="agregar-carrito" data-nombre="Bioderma Defensive Serum"data-Precio="21.87">Agregar al carrito</button>
+    </div>
+    <div class="producto">
+        <img src="producto14" alt="Producto 3">
+        <h3> Bioderma Photoderm Crema SPF50+</h3>
+        <p>Marca: Bioderma  </p>
+        <span>$16.81</span>
+        <button class="agregar-carrito"data-nombre="Bioderma Photoderm Crema SPF50+"data-Precio="16.81">Agregar al carrito</button>
+    </div>
+    <div class="producto">
+        <img src="producto15" alt="Producto 3">
+        <h3>Bioderma Atoderm Crema Ultra</h3>
+        <p>Marca: Bioderma  </p>
+        <span>$33.63</span>
+        <button class="agregar-carrito" data-nombre="Bioderma Atoderm Crema Ultra"data-Precio="33.63">Agregar al carrito</button>
+    </div>
+    <div class="producto">
+        <img src="producto16" alt="Producto 3">
+        <h3>ISDIN Fotoultra Age Repair SPF50 </h3>
+        <p>Marca: ISDIN   </p>
+        <span>$16.81</span>
+        <button class="agregar-carrito" data-nombre="ISDIN Fotoultra Age Repair SPF50"data-Precio="16.81">Agregar al carrito</button>
+    </div>
+    <div class="producto">
+        <img src="producto17" alt="Producto 3">
+        <h3>ISDIN Flavo-C Sérum Antioxidante </h3>
+        <p>Marca: ISDIN   </p>
+        <span>$16.81</span>
+        <button class="agregar-carrito" data-nombre="ISDIN Flavo-C Sérum Antioxidante"data-Precio="16.81">Agregar al carrito</button>
+    </div>
+    <div class="producto">
+        <img src="producto18" alt="Producto 3">
+        <h3>ISDIN Acniben Limpiador Purificante Espuma </h3>
+        <p>Marca: ISDIN   </p>
+        <span>$22.70</span>
+        <button class="agregar-carrito" data-nombre="ISDIN Acniben Limpiador Purificante Espuma"data-Precio="22.70">Agregar al carrito</button>
+    </div>
+    <div class="producto">
+      <img src="PRODUCTO19" alt="Producto 3">
+      <h3>Protector Solar Facial Piel Sensible </h3>
+      <p>Marca: NIVEA  </p>
+      <span>$9.72</span>
+      <button class="agregar-carrito" data-nombre="Protector Solar Facial Piel Sensible"data-Precio="9.72">Agregar al carrito</button>
+  </div>
+  <div class="producto">
+    <img src="PRODUCTO20" alt="Producto 3">
+    <h3>Crema Corporal Aclaradora Natural </h3>
+    <p>Marca: NIVEA   </p>
+    <span>$16.20</span>
+    <button class="agregar-carrito" data-nombre="Crema Corporal Aclaradora Natural"data-Precio="16.20">agregar al carrito</button>
+</div>
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nuestra Tienda</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        section {
+            padding: 20px;
+        }
+
+        .productos {
+            display: flex;
+            flex-wrap: wrap;
+        }
+
+        .producto {
+            border: 1px solid #ddd;
+            margin: 10px;
+            padding: 10px;
+            width: 200px;
+            text-align: center;
+        }
+
+        .producto img {
+            width: 100px;
+            height: auto;
+        }
+
+        button {
+            background-color:#ccc;
+            color: white;
+            padding: 10px;
+            border: none;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+
+        .carrito {
+            margin-top: 40px;
+            padding: 20px;
+            border: 2px solid #ccc;
+            background-color: #f9f9f9;
+        }
+
+        #lista-carrito li {
+            margin-bottom: 10px;
+        }
+
+        #formulario-envio input {
+            display: block;
+            margin-bottom: 10px;
+            padding: 8px;
+            width: 100%;
+            max-width: 300px;
+        }
+
+        #formulario-envio button {
+            padding: 10px 20px;
+            background-color: #ccc;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+
+    </style>
+</head>
+<body><script>
+  // Esperamos a que todo el contenido esté cargado
+  document.addEventListener('DOMContentLoaded', () => {
+      const botonesAgregar = document.querySelectorAll('.agregar-carrito');
+      const listaCarrito = document.getElementById('lista-carrito');
+      const total = document.getElementById('total');
+
+      let totalCompra = 0;
+      const cart = [];
+
+      botonesAgregar.forEach((boton) => {
+          boton.addEventListener('click', (event) => {
+              const button = event.target;
+
+              // Obtenemos datos del producto
+              const name = button.dataset.nombre;
+              const price = parseFloat(button.dataset.precio);
+
+              const product = {
+                  name: name,
+                  price: price
+              };
+
+              cart.push(product);
+
+              // Crear un nuevo ítem en el carrito
+              const item = document.createElement('li');
+              item.textContent = `${name} - $${price.toFixed(2)}`;
+              listaCarrito.appendChild(item);
+
+              // Actualizar el total
+              totalCompra += price;
+              total.textContent = totalCompra.toFixed(2);
+          });
+      });
+  });
+</script>
+
+        <!-- Agrega más productos aquí si lo deseas -->
+    </div>
+
+    <!-- Carrito de compras -->
+    <div id="carrito" class="carrito">
+        <h2>🛒 Tu Carrito</h2>
+        <ul id="lista-carrito"></ul>
+        <p>Total: $<span id="total">0</span></p>
+
+        <h3>Detalles de envío</h3>
+        <form id="formulario-envio">
+            <input type="text" placeholder="Nombre completo" required>
+            <input type="tel" placeholder="Teléfono" required>
+            <input type="text" placeholder="Dirección de entrega" required>
+            <button type="submit">Pagar</button>
+        </form>
+    </div>
+</section>
+
+<script>
+    // Seleccionamos los botones de agregar al carrito
+    botonesAgregar = document.querySelectorAll('.agregar-carrito');
+    listaCarrito = document.getElementById('lista-carrito');
+    total = document.getElementById('total');
+
+    totalCompra = 0;
+    cart =[];
+    botonesAgregar.forEach((boton) => {
+        boton.addEventListener('click', () => {
+            const name = even.target.dataset.dataNombre
+            const price = even.target.dataset.dataPrecio
+
+            const product = {
+              name: name,
+              price: price
+            }
+
+            cart.push(product)
+
+            // Crear un nuevo ítem en el carrito
+            const item = document.createElement('li');
+            item.textContent = `${name} - $${price}`;
+            listaCarrito.appendChild(item);
+
+            // Actualizar el total
+            totalCompra += precioProducto;
+            total.textContent = totalCompra;
+        });
+    });
+
+    // Formulario de pago
+    formulario = document.getElementById('formulario-envio');
+    formulario.addEventListener('submit', function (e) {
+        e.preventDefault();
+        alert("¡Gracias por tu compra! Tu pedido está en camino. 📦");
+        // Limpiar el carrito
+        listaCarrito.innerHTML = '';
+        total.textContent = 0;
+        totalCompra = 0;
+        formulario.reset();
+    });
+</script>
+
+</body>
+</html>
+
+
+  </section>  
+  <section style="text-align: center; padding: 2rem; background: #fffaf5;">
+    <h2 style="color: #a0522d;"><i class="fas fa-video"></i> Limpieza Facial Profunda </h2>
+    <p style="max-width: 600px; margin: 0 auto 1.5rem; font-size: 1rem; color: #555;">
+      Descubre cómo Hacemos tu rutina facial rápida y efectiva.
+    </p>
+    <iframe width="560" height="315" src="IMG_1285.MP4" 
+      title="Rutina facial" frameborder="0" allow="accelerometer; autoplay; clipboard-write; 
+      encrypted-media; gyroscope; picture-in-picture" allowfullscreen 
+      style="border-radius: 12px; box-shadow: 0 4px 12px rgba(0,0,0,0.1);">
+    </iframe>
+  </section>
+  
+  <!DOCTYPE html>
+  <html lang="es">
+  <head>
+    <meta charset="UTF-8">
+    <title>Glowing Charm</title>
+    <!-- Enlace a Font Awesome -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+  
+    <style>
+      body {
+        font-family: 'Segoe UI', sans-serif;
+        margin: 0;
+        padding: 0;
+        background: #fffdfc;
+        color: #333;
+      }
+  
+      h2 {
+        text-align: center;
+        font-size: 2rem;
+        color: #a0522d;
+        margin: 2rem 0 1rem;
+      }
+  
+      .contenido-breve {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 2rem;
+        gap: 2rem;
+        max-width: 1000px;
+        margin: auto;
+        flex-wrap: wrap;
+      }
+  
+      .contenido-breve img {
+        width: 200px;
+        border-radius: 10px;
+      }
+  
+      .contenido-breve p {
+        font-size: 1.1rem;
+        line-height: 1.6;
+        max-width: 400px;
+        text-align: justify;
+      }
+  
+      .boton-conoce-mas {
+        display: inline-block;
+        margin-top: 1rem;
+        padding: 0.5rem 1.5rem;
+        background: #f4a261;
+        color: white;
+        text-decoration: none;
+        border-radius: 8px;
+        transition: background 0.3s;
+        cursor: pointer;
+      }
+  
+      .boton-conoce-mas:hover {
+        background: #e76f51;
+      }
+    </style>
+    <script>
+      function abrirVentana() {
+        const nuevaVentana = window.open('', '_blank');
+        nuevaVentana.document.write(`
+          <!DOCTYPE html>
+          <html lang="es">
+          <head>
+            <meta charset="UTF-8">
+            <title>Quiénes Somos - Glowing Charm</title>
+            <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+            <style>
+              body {
+                font-family: 'Segoe UI', sans-serif;
+                margin: 0;
+                padding: 2rem;
+                background: #fffdfc;
+                color: #333;
+                text-align: justify;
+              }
+  
+              h2 {
+                text-align: center;
+                font-size: 2rem;
+                color: #a0522d;
+                margin: 1rem 0 2rem;
+              }
+  
+              .seccion {
+                max-width: 900px;
+                margin: auto;
+              }
+  
+              .tarjetas {
+                display: flex;
+                flex-wrap: wrap;
+                justify-content: center;
+                gap: 2rem;
+                margin-top: 2rem;
+              }
+  
+              .tarjeta {
+                flex: 1;
+                min-width: 260px;
+                background: #fdf6f0;
+                padding: 1.5rem;
+                border-radius: 15px;
+                box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+                transition: transform 0.3s ease;
+              }
+  
+              .tarjeta:hover {
+                transform: translateY(-5px);
+              }
+  
+              .tarjeta h3 {
+                text-align: center;
+                color: #a0522d;
+                font-size: 1.3rem;
+              }
+  
+              .icono {
+                font-size: 2rem;
+                text-align: center;
+                display: block;
+                margin-bottom: 0.5rem;
+              }
+  
+              .tarjeta p,
+              .tarjeta ul {
+                font-size: 1rem;
+                line-height: 1.6;
+                text-align: justify;
+                margin: 0.5rem 0 0;
+              }
+  
+              .tarjeta ul {
+                padding-left: 1.2rem;
+                list-style: none;
+              }
+  
+              .tarjeta ul li::before {
+                content: '🌸 ';
+              }
+  
+              .boton-volver {
+                display: block;
+                width: fit-content;
+                margin: 3rem auto 2rem;
+                padding: 0.5rem 1.5rem;
+                background: #f4a261;
+                color: white;
+                text-decoration: none;
+                border-radius: 8px;
+                transition: background 0.3s;
+                text-align: center;
+              }
+  
+              .boton-volver:hover {
+                background: #e76f51;
+              }
+            </style>
+          </head>
+          <body>
+            <div class="seccion">
+              <h2>Nuestra Historia</h2>
+              <p>
+               En el año 2023, Esmeilyn Peralta y Rosa Capellán dos grandes amigas, mientras charlaban sobre sus visiones y sueños, decidieron dar el gran paso y fundar su propia empresa de cosmetología, se unieron y juntaron sus ideas y crearon “glowing charm”. Una empresa que ofrezca servicios de tratamientos faciales y ventas de productos. Su misión es resaltar la belleza natural a través de tratamientos, brindar servicios de alta calidad que promuevan la salud de la piel.
+
+Esmeylin se encargó de la parte creativa y el diseño del empaque, mientras que rosa en marketing y las relaciones públicas. Con mucho esfuerzo y dedicación comenzaron su gran proyecto.
+Al inicio enfrentaron desafíos como la competencia en el mercado y la necesidad de financiamiento, sin embargo, gracias a su pasión y al apoyo de sus amigos y familiares, lograron superar los obstáculos. Utilizaron las redes sociales para promocionar su empresa y rápidamente ganaron seguidores leales. Con el tiempo “glowing charm” se convirtió en un nombre reconocido en la industria de la cosmetología.
+
+Las amigas no solo crearon una empresa exitosa, sino que también construyeron una comunidad alrededor de nuestros servicios, donde comparten consejos sobre belleza natural y cuidado personal. Así fue como esmeylin y rosa transformaron su sueño en realidad, demostrando que con trabajo en equipo y dedicación se pueden lograr grandes cosas.
+s
+              </p>
+  
+              <div class="tarjetas">
+                <div class="tarjeta">
+                  <span class="icono"><i class="fas fa-heart"></i></span>
+                  <h3>Misión</h3>
+                  <p>
+                     En Glowing Charm, nos dedicamos a resaltar la belleza natural de cada persona a través de tratamientos, Nuestro compromiso es brindar servicios y productos de alta calidad que promuevan la salud de la piel.
+                  </p>
+                </div>
+  
+                <div class="tarjeta">
+                  <span class="icono"><i class="fas fa-star"></i></span>
+                  <h3>Visión</h3>
+                  <p>
+
+Ser reconocidos como líderes en el sector de la cosmetología, innovando constantemente en técnicas y productos que respeten el medio ambiente y la salud de nuestros clientes. Aspiramos a crear un espacio donde la belleza y el autocuidado sean accesibles para todos.
+
+                  </p>
+                </div>
+  
+                <div class="tarjeta">
+                  <span class="icono"><i class="fas fa-leaf"></i></span>
+                  <h3>Valores</h3>
+                  <ul>
+                    <li> Calidad</li>
+                    <li> Honnestidad</li>
+                    <li> Compromiso</li>
+                    <li>  Lealtad</li>
+                    <li> Empoderamiento</li>
+                    <li> Respeto</li>
+                    <li> Sostenibilidad</li>
+                    <li> Solidaridad</li>
+                  </ul>
+                </div>
+              </div>
+  
+              <a href="#" onclick="window.close()" class="boton-volver">⬅ Cerrar ventana</a>
+            </div>
+          </body>
+          </html>
+        `);
+      }
+    </script>
+  </head>
+  <body>
+  
+    <!-- SECCIÓN QUIÉNES SOMOS -->
+    <section id="sobre-nosotros">
+      <h2>¿Quiénes Somos?</h2>
+      <div class="contenido-breve">
+        <img src="QUIENES SOMOS.jpeg" alt="Glowing Charm">
+        <div>
+          <p>
+            Somos Glowing Charm, un espacio creado con amor por Esmeylin y Rosa, donde la belleza natural y el cuidado personal son nuestra pasión. 💖
+          </p>
+          <button onclick="abrirVentana()" class="boton-conoce-mas">Conócenos más</button>
+        </div>
+      </div>
+    </section>
+  
+  </body>
+  </html>
+  <!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Glowing Charm - Blog</title>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background: #fffdfc;
+      margin: 0;
+      padding: 2rem;
+      color: #333;
+    }
+
+    h2 {
+      text-align: center;
+      color: #a0522d;
+      margin-bottom: 2rem;
+    }
+
+    .blog {
+      max-width: 900px;
+      margin: auto;
+    }
+
+    .blog-post {
+      background: #fdf6f0;
+      border-radius: 12px;
+      padding: 1.5rem;
+      margin-bottom: 2rem;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+    }
+
+    .blog-post h3 a {
+      text-decoration: none;
+      color: #e76f51;
+      font-size: 1.4rem;
+    }
+
+    .blog-post h3 a:hover {
+      text-decoration: underline;
+    }
+
+    .blog-post p {
+      font-size: 1rem;
+      margin-top: 0.5rem;
+      text-align: justify;
+    }
+  </style>
+</head>
+<body>
+
+  <!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Glowing Charm - Blog</title>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background: #fffdfc;
+      margin: 0;
+      padding: 2rem;
+      color: #333;
+    }
+    h2 {
+      text-align: center;
+      color: #a0522d;
+      margin-bottom: 2rem;
+    }
+    .blog {
+      max-width: 900px;
+      margin: auto;
+    }
+    .blog-post {
+      background: #fdf6f0;
+      border-radius: 12px;
+      padding: 1.5rem;
+      margin-bottom: 2rem;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+    }
+    .blog-post h3 a {
+      text-decoration: none;
+      color: #e76f51;
+      font-size: 1.4rem;
+    }
+    .blog-post h3 a:hover {
+      text-decoration: underline;
+    }
+    .blog-post p {
+      font-size: 1rem;
+      margin-top: 0.5rem;
+      text-align: justify;
+    }
+  </style>
+</head>
+<body>
+
+  <!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Blog de cuidado de la piel</title>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background: #fffdfc;
+      margin: 0;
+      padding: 2rem;
+      color: #333;
+    }
+
+    h2 {
+      text-align: center;
+      color: #a0522d;
+      margin-bottom: 2rem;
+    }
+
+    .blog {
+      max-width: 900px;
+      margin: auto;
+    }
+
+    .blog-post {
+      background: #fdf6f0;
+      border-radius: 12px;
+      padding: 1.5rem;
+      margin-bottom: 2rem;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+    }
+
+    .blog-post h3 a {
+      text-decoration: none;
+      color: #e76f51;
+      font-size: 1.4rem;
+      cursor: pointer;
+    }
+
+    .blog-post h3 a:hover {
+      text-decoration: underline;
+    }
+
+    .blog-post p {
+      font-size: 1rem;
+      margin-top: 0.5rem;
+      text-align: justify;
+    }
+  </style>
+</head>
+<body>
+
+<section class="blog">
+  <h2><i class="fas fa-blog"></i> Blog de cuidado de la piel</h2>
+  <div class="blog-post">
+    <h3>
+      <a onclick="abrirArticulo()">Cómo elegir los mejores productos para tu tipo de piel</a>
+    </h3>
+    <p>Descubre los secretos para cuidar tu piel con los productos adecuados...</p>
+  </div>
+</section>
+
+<script>
+  function abrirArticulo() {
+    const contenido = `
+      <!DOCTYPE html>
+      <html lang="es">
+      <head>
+        <meta charset="UTF-8">
+        <title>Cómo elegir los mejores productos</title>
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
+        <style>
+          body { font-family: 'Segoe UI', sans-serif; margin: 0; padding: 2rem; background: #fffdfc; color: #333; text-align: justify; }
+          h1 { text-align: center; color: #a0522d; margin-bottom: 1rem; }
+          .contenido-articulo { max-width: 900px; margin: auto; }
+          .imagen-principal { width: 100%; max-width: 600px; display: block; margin: 1.5rem auto; border-radius: 12px; box-shadow: 0 4px 12px rgba(0,0,0,0.1); }
+          .icono { font-size: 1.5rem; color: #e76f51; margin-right: 0.5rem; }
+          h2 { color: #d2691e; margin-top: 2rem; }
+          ul { padding-left: 1.5rem; }
+          ul li::before { content: " "; }
+          a.volver { display: inline-block; margin-top: 3rem; padding: 0.6rem 1.4rem; background: #f4a261; color: white; text-decoration: none; border-radius: 8px; }
+          a.volver:hover { background: #e76f51; }
+        </style>
+      </head>
+      <body>
+        <div class="contenido-articulo">
+          <h1><i class="fas fa-leaf icono"></i>Cómo elegir los mejores productos para tu tipo de piel</h1>
+          <img src="holaa.jpeg" alt="holaa.jpeg" class="imagen-principal">
+          <p>Elegir los productos correctos para tu tipo de piel puede marcar la diferencia en tu rutina de belleza. Cada piel tiene necesidades únicas, y usar lo que no se ajusta a ti puede causar irritación, resequedad o exceso de grasa.</p>
+          <h2><i class="fas fa-sun icono"></i>Conoce tu tipo de piel</h2>
+          <ul>
+            <li>Piel seca: tirante, áspera o escamosa.</li>
+            <li>Piel grasa: brilla fácilmente, poros dilatados.</li>
+            <li>Piel mixta: zona T grasa, mejillas secas.</li>
+            <li>Piel sensible: se enrojece o irrita fácilmente.</li>
+          </ul>
+          <h2><i class="fas fa-bottle-droplet icono"></i>Ingredientes que debes buscar</h2>
+          <ul>
+            <li>Ácido hialurónico para hidratar.</li>
+            <li>Niacinamida para regular la grasa.</li>
+            <li>Aloe vera para calmar la piel.</li>
+            <li>Retinol para suavizar líneas finas.</li>
+          </ul>
+          <h2><i class="fas fa-heart icono"></i>Consejos</h2>
+          <p>Siempre realiza una prueba en una pequeña zona antes de aplicar un producto nuevo, especialmente si tu piel es sensible. Esto te ayudará a evitar reacciones no deseadas como enrojecimiento, picazón o ardor. Recuerda que menos es más: una rutina sencilla, constante y basada en lo que tu piel realmente necesita será mucho más efectiva que saturarla con demasiados productos. La clave está en la calidad, no en la cantidad. Dale tiempo a tu piel para adaptarse y escucha sus señales: la constancia y el equilibrio son los mejores aliados para una piel sana y radiantes.</p>
+          <a href="#" onclick="window.close()" class="volver">⬅ Cerrar</a>
+        </div>
+      </body>
+      </html>
+    `;
+
+    const nuevaVentana = window.open('', '_blank');
+    nuevaVentana.document.open();
+    nuevaVentana.document.write(contenido);
+    nuevaVentana.document.close();
+  }
+</script>
+
+</body>
+</html>
+
+  </section>
+
+</body>
+</html> 
+ <!-- Test de Rutina Ideal -->
+ <section class="skin-test">
+  <h2>Encuentra tu rutina ideal</h2>
+  <form id="skin-form">
+    <label for="skin-type">¿Cuál es tu tipo de piel?</label>
+    <select id="skin-type" name="skin-type">
+      <option value="seca">Piel seca</option>
+      <option value="grasa">Piel grasa</option>
+      <option value="mixta">Piel mixta
+      </option>
+      <option value="normal">Piel normal</option>
+    </select>
+
+    <button type="submit">Descubrir mi rutina</button>
+  </form>
+  <div id="routine-result"></div>
+</section>
+
+<script>
+  document.getElementById('skin-form').addEventListener('submit', function(event) {
+    event.preventDefault();
+
+    const skinType = document.getElementById('skin-type').value;
+    let result = '';
+
+    switch(skinType) {
+      case 'seca':
+        result = 'La piel seca necesita hidratación intensa, productos que restauren la barrera cutánea y que no la despojen de sus aceites naturales. Rutina de Mañana: Limpieza: CeraVe Hydrating Cleanser, suave y sin jabón.Tónico: Bioderma Hydrabio Tonique, para hidratar desde el primer paso. Hidratación: La Roche-Posay Toleriane Sensitive Riche, rica en ingredientes calmantes. Protector solar: Eucerin Sun Sensitive Protect SPF 50+, ideal para pieles secas y sensibles.Rutina de Noche: Desmaquillante/Limpieza: Nivea Micellar Water piel seca. Tratamiento: ISHF Ácido Hialurónico Sérum, para hidratar en profundidad. Crema nutritiva: Babe Hidranutritiva Noche, repara y nutre mientras duermes.';
+        break;
+      case 'grasa':
+        result = 'Este tipo de piel requiere control de brillo y productos no comedogénicos que ayuden a evitar imperfecciones. Rutina de Mañana: Limpieza: Bioderma Sébium Gel Moussant, regula el sebo sin agredir.Tónico: ISHF Tónico Purificante con Niacinamida, perfecto para reducir poros. Hidratante: La Roche-Posay Effaclar Mat, hidrata y matifica.Protector solar: Eucerin Oil Control SPF 50+, textura ultra ligera. Rutina de Noche:Limpieza: CeraVe Foaming Cleanser, elimina impurezas y grasa. Tratamiento: ISHF Sérum con Ácido Salicílico y Zinc, combate imperfecciones. Hidratación ligera: Babe Stop AKN Sebo-Reguladora,ideal para piel grasa.';
+        break;
+      case 'mixta':
+        result = 'Piel con tendencia grasa en la zona T y seca o normal en las mejillas. Necesita equilibrio. Rutina de Mañana:Limpieza: La Roche-Posay Effaclar Gel, elimina grasa sin resecar. Tónico: Bioderma Hydrabio Tonique, hidrata sin engrasar. Hidratante: Eucerin Hydro Balance Fluido, ligera y equilibrante. Protector solar: ISHF Protector Solar Oil-Free SPF 50, acabado mate. Rutina de Noche: Limpieza: Nivea Micellar Water piel mixta. Sérum: CeraVe Resurfacing Retinol Serum, mejora la textura (2-3 veces por semana). Hidratación nocturna: Babe Emulsión Hidratante Equilibrante..';
+        break;
+      case 'normal':
+        result = 'Equilibrada, sin zonas problemáticas. El enfoque es mantener su estado saludable. Rutina de Mañana:Limpieza: CeraVe Hydrating Cleanser, suave y eficaz. ónico: ISHF Tónico Refrescante, despierta e hidrata la piel. Hidratante: Nivea Soft, textura ligera y fresca. Protección solar: La Roche-Posay Anthelios Ultra-Light SPF 50+, protección total sin sensación pesada. Rutina de Noche: Limpieza: Bioderma Sensibio H2O, limpia sin alterar la piel.Sérum: ISHF Vitamina C Sérum, aporta luminosidad y antioxidantes. Crema de noche: Eucerin Hyaluron-Filler Noche, mejora la hidratación y firmeza..';
+        break;
+      default:
+        result = 'Selecciona un tipo de piel.';
+    }
+
+    document.getElementById('routine-result').innerText = result;
+  });
+</script>
+
+</body>
+</html>
+
+  <!-- CONTACTO -->
+  <section id="contacto">
+    <h2>Contactanos</h2>
+    <form onsubmit="return enviarFormulario()">
+      <input type="text" name="nombre" placeholder="Nombre" required>
+      <input type="text" name="apellido" placeholder="Apellido" required>
+      <input type="tel" name="telefono" placeholder="Teléfono" required>
+      <input type="text" name="fecha" placeholder="fecha" required>
+      <input type="email" name="correo" placeholder="Correo" required>
+      <select name="servicio">
+        <option>Peeling Físico</option>
+        <option>Programas de Datox Facial</option>
+        <option>Limpieza Facial</option>
+        <option>Tratamientos Faciales</option>
+        <option>Depilacion</option>
+        <option>Asesoría en Cuidado de la Piel</option>
+        <option>Tratamientos de Microdermoabrasión</option>
+      </select>
+      <button type="submit">Enviar</button>
+    </form>
+    <p id="mensaje-enviado"></p>
+  </section>
+  <!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Glowing Charm</title>
+  <style>
+    /* Banda de Ofertas */
+    .promo-banner {
+      background-color: #f4c2c2;
+      color: #fff;
+      text-align: center;
+      padding: 10px;
+      font-size: 18px;
+      font-weight: bold;
+      position: fixed;
+      width: 100%;
+      top: 0;
+      z-index: 1000;
+    }
+
+    .promo-banner p {
+      margin: 0;
+    }
+
+    /* Video Corto */
+    .video-section {
+      text-align: center;
+      padding: 30px;
+    }
+
+    .video-container {
+      max-width: 100%;
+      margin: 20px auto;
+    }
+
+    video {
+      width: 80%;
+      border-radius: 8px;
+    }
+
+    /* Redes Sociales */
+    .social-media {
+      text-align: center;
+      padding: 30px;
+    }
+
+    .social-icons a {
+      margin: 10px;
+    }
+
+    .social-icons img {
+      width: 40px;
+      height: 40px;
+    }
+
+    /* Blog */
+    .blog {
+      text-align: center;
+      padding: 30px;
+    }
+
+    .blog-post h3 {
+      font-size: 20px;
+      margin: 10px 0;
+    }
+
+    .blog-post p {
+      font-size: 16px;
+      color: #666;
+    }
+
+    /* Test de Rutina Ideal */
+    .skin-test {
+      text-align: center;
+      padding: 30px;
+    }
+
+    #skin-form {
+      margin: 20px 0;
+    }
+
+    #skin-type {
+      padding: 10px;
+      font-size: 16px;
+    }
+
+    button {
+      padding: 10px 20px;
+      background-color: #f4c2c2;
+      border: none;
+      cursor: pointer;
+      font-size: 16px;
+    }
+
+    button:hover {
+      background-color: #ff80a5;
+    }
+
+    #routine-result {
+      margin-top: 20px;
+      font-size: 18px;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Banda de Ofertas -->
+  <section class="promo-banner">
+    <p><strong>¡Descuento del 20% en tu primera compra! Usar código: GLOW20</strong></p>
+  </section>
+
+
+  <!-- Redes Sociales -->
+  <section class="social-media">
+    <h2>Síguenos en nuestras redes sociales</h2>
+    <div class="social-icons">
+      <a href="https://www.instagram.com/glowingcharm.rd?igsh=MTFleWlhbmh0bW8zOQ%3D%3D&utm_source=qr" target="_blank"><img src="logo instagram.jpeg" alt="Instagram"></a>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <p>&copy; 2025 Glowing Charm. Todos los derechos reservados.</p>
+    <p>Contáctanos: glowingcharm@gmail.com | 829-454-6197</p>
+  </footer>
+  <script>
+    function enviarFormulario() {
+      document.getElementById('mensaje-enviado').innerText = "¡Cita agendada exitosamente!";
+      return false;
+    }
+  </script>
+
+</body>
+</html>
+ 
